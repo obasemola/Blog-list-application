@@ -3,8 +3,8 @@ const Blog = require('./models/blog');
 const app = express();
 const config = require('./utils/config');
 const logger = require('./utils/logger')
-const http = require('http')
-const cors = require('cors')
+// const http = require('http')
+// const cors = require('cors')
 
 
 // app.use(cors())
