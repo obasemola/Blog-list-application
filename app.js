@@ -26,8 +26,8 @@ mongoose.connect(config.MONGODB_URI, {useNewUrlParser: true, useUnifiedTopology:
 app.use('/api/blogs', blogsRouter)
 
 
+module.exports = app
 
-
-app.listen(config.PORT, () => {
-  logger.info(`Server running on port ${config.PORT}`)
-})
+// app.listen(config.PORT, () => {
+//   logger.info(`Server running on port ${config.PORT}`)
+// })

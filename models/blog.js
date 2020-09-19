@@ -3,9 +3,6 @@ const config = require('../utils/config')
 
 mongoose.set('useFindAndModify', false);
 
-// const url = config.MONGODB_URI
-
-// mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true});
 
 const blogSchema = new mongoose.Schema({
   title: String,

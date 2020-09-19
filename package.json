@@ -4,8 +4,8 @@
   "description": "Created with node, this application allows users to save information about interesting blogs they have stumbled across on the internet.",
   "main": "blogs.js",
   "scripts": {
-    "dev": "nodemon app.js",
-    "start": "node app.js",
+    "dev": "nodemon index.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
