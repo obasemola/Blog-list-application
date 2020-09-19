@@ -2,10 +2,10 @@
   "name": "blog",
   "version": "1.0.0",
   "description": "Created with node, this application allows users to save information about interesting blogs they have stumbled across on the internet.",
-  "main": "index.js",
+  "main": "blogs.js",
   "scripts": {
-    "dev": "nodemon index.js",
-    "start": "node index.js",
+    "dev": "nodemon blogs.js",
+    "start": "node blogs.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
