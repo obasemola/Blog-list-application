@@ -63,44 +63,14 @@ const mostLikes = () => {
   });
   const max = Math.max(...arr);
   
-  
+  const result = reducedLikes.map((reducedLike) => {
+    if(reducedLike.likes === max) {
+      return reducedLike
+    } else {
+      return
+    }
+  })
+  return result
 }
 
 mostLikes()
-// const fetchResults = [ {
-//   date: '03/20/2020', symbol: 'TLTE', quantity: 100, amount: 3570,
-// }, {
-//   date: '03/20/2020', symbol: 'GE', quantity: 100, amount: 10000,
-// }, {
-//   date: '03/20/2020', symbol: 'AAPL', quantity: 50, amount: 22222,
-// }, {
-//   date: '03/20/2020', symbol: 'TLTE', quantity: 4, amount: 161.02,
-// }, {
-//   date: '03/20/2020', symbol: 'TLTE', quantity: 281, amount: 10034.51,
-// }, {
-//   date: '03/21/2020', symbol: 'TLTE', quantity: 200, amount: 8000,
-// } ]
-
-
-// const results = Object.values(
-//   // we are going to take our array and create a lookup object using reduce
-//   fetchResults.reduce((obj, data) => {
-//     // generate the key for our lookup object
-//     const key = data.symbol + data.date
-//     // check to see if the result exists yet
-//     const dayResult = obj[key]
-//     // if it exists we updated the record values
-//     if (dayResult) {
-//       dayResult.quantity += data.quantity
-//       dayResult.amount += data.amount    
-//     } else {
-//       // if it does not exist we copy the record into the  key we made
-//       obj[key] = { ...data }
-//     }
-//     // return our lookup data
-//     return obj
-//   }, {})
-// )
-
-// console.log(results)
-

@@ -50,10 +50,52 @@ const mostBlogs = (blogs) => {
   return highestBlogNumberObject
 }
 
+const mostLikes = () => {
+  let blogsAuthorsAndLikes = blogs.map((blog) => {
+    return {
+      author: blog.author,
+      likes: blog.likes
+
+    }
+  });
+
+  console.log(blogsAuthorsAndLikes)
+
+  const reducedLikes = Object.values(
+    blogsAuthorsAndLikes.reduce((obj, blog) => {
+      const key = blog.author;
+      const authorLikes = obj[key];
+
+      if(authorLikes){
+        authorLikes.likes += blog.likes
+      } else {
+        obj[key] = {...blog}
+      }
+      return obj
+    }, {})
+  )
+  console.log(reducedLikes)
+
+  const arr = reducedLikes.map((reducedLike) => {
+    return reducedLike.likes
+  });
+  const max = Math.max(...arr);
+  
+  const result = reducedLikes.map((reducedLike) => {
+    if(reducedLike.likes === max) {
+      return reducedLike
+    } else {
+      return
+    }
+  })
+  return result
+}
+
 
 module.exports = {
   dummy,
   totalLikes,
   favouriteBlog,
-  mostBlogs
+  mostBlogs,
+  mostLikes
 }
