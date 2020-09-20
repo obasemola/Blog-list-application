@@ -48,7 +48,7 @@ const mostBlogs = () => {
     blogs: reducedBlogsAuthors[highestBlogsAuthor]
   }
 
-  return highestBlogNumberObject
+  console.log(highestBlogNumberObject)
 }
 
 mostBlogs()

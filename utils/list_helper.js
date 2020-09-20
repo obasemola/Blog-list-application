@@ -31,7 +31,7 @@ const favouriteBlog = (blogs) => {
   return favBlog
 }
 
-const mostBlogs = () => {
+const mostBlogs = (blogs) => {
   let blogsAuthors = blogs.map(blog => blog.author);
   let reducedBlogsAuthors= _.reduce(blogsAuthors, (total, next) => {
   total[next] = (total[next] || 0) + 1;
