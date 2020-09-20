@@ -58,7 +58,12 @@ const mostLikes = () => {
   )
   console.log(reducedLikes)
 
-  const 
+  const arr = reducedLikes.map((reducedLike) => {
+    return reducedLike.likes
+  });
+  const max = Math.max(...arr);
+  
+  
 }
 
 mostLikes()
