@@ -128,4 +128,31 @@ test('of highest number of blogs in all blogs', () => {
     author: "Robert C. Martin",
     blogs: 3
   })
+});
+
+
+describe('author with highest number of blogs', () => {
+  test('of highest number of blogs in 1 blog', () => {
+    const result = list_helper.mostLikes(listWithOneBlog)
+    expect(result).toEqual({
+      author: 'Edsger W. Dijkstra',
+      likes: 5
+    })
+  });
+
+  test('of highest number of blogs in 4 blogs', () => {
+    const result = list_helper.mostLikes(listWithFourBlogs)
+    expect(result).toEqual({
+      author: "Edsger W. Dijkstra",
+      likes: 17
+    })
+  })
+});
+
+test('of highest number of blogs in all blogs', () => {
+  const result = list_helper.mostLikes(blogs)
+  expect(result).toEqual({
+    author: "Edsger W. Dijkstra",
+    likes: 17
+  })
 })
