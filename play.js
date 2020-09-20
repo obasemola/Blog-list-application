@@ -32,24 +32,70 @@ const blogs = [
 
 // console.log(tally);
 
-const mostBlogs = () => {
-  let blogsAuthors = blogs.map(blog => blog.author);
-  let reducedBlogsAuthors= _.reduce(blogsAuthors, (total, next) => {
-  total[next] = (total[next] || 0) + 1;
+const mostLikes = () => {
+  let blogsAuthorsAndLikes = blogs.map((blog) => {
+    return {
+      author: blog.author,
+      likes: blog.likes
 
-  return total
-}, {});
-  const highestBlogsAuthor = Object.keys(reducedBlogsAuthors).reduce((a, b) => {
-    return reducedBlogsAuthors[a] > reducedBlogsAuthors[b] ? a : b
-  })
+    }
+  });
 
-  highestBlogNumberObject = {
-    author: highestBlogsAuthor,
-    blogs: reducedBlogsAuthors[highestBlogsAuthor]
-  }
+  console.log(blogsAuthorsAndLikes)
 
-  console.log(highestBlogNumberObject)
+  const reducedLikes = Object.values(
+    blogsAuthorsAndLikes.reduce((obj, blog) => {
+      const key = blog.author;
+      const authorLikes = obj[key];
+
+      if(authorLikes){
+        authorLikes.likes += blog.likes
+      } else {
+        obj[key] = {...blog}
+      }
+      return obj
+    }, {})
+  )
+  console.log(reducedLikes)
+
+  const 
 }
 
-mostBlogs()
+mostLikes()
+// const fetchResults = [ {
+//   date: '03/20/2020', symbol: 'TLTE', quantity: 100, amount: 3570,
+// }, {
+//   date: '03/20/2020', symbol: 'GE', quantity: 100, amount: 10000,
+// }, {
+//   date: '03/20/2020', symbol: 'AAPL', quantity: 50, amount: 22222,
+// }, {
+//   date: '03/20/2020', symbol: 'TLTE', quantity: 4, amount: 161.02,
+// }, {
+//   date: '03/20/2020', symbol: 'TLTE', quantity: 281, amount: 10034.51,
+// }, {
+//   date: '03/21/2020', symbol: 'TLTE', quantity: 200, amount: 8000,
+// } ]
+
+
+// const results = Object.values(
+//   // we are going to take our array and create a lookup object using reduce
+//   fetchResults.reduce((obj, data) => {
+//     // generate the key for our lookup object
+//     const key = data.symbol + data.date
+//     // check to see if the result exists yet
+//     const dayResult = obj[key]
+//     // if it exists we updated the record values
+//     if (dayResult) {
+//       dayResult.quantity += data.quantity
+//       dayResult.amount += data.amount    
+//     } else {
+//       // if it does not exist we copy the record into the  key we made
+//       obj[key] = { ...data }
+//     }
+//     // return our lookup data
+//     return obj
+//   }, {})
+// )
+
+// console.log(results)
 
