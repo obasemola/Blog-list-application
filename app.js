@@ -13,7 +13,7 @@ mongoose.connect(config.MONGODB_URI, {useNewUrlParser: true, useUnifiedTopology:
   .then(() => {
     logger.info('connected to MongoDB')
   })
-  .catch(() => {
+  .catch((error) => {
     logger.error('error connecting to MongoDB', error.message)
   })
 
