@@ -90,6 +90,30 @@ test('deletion of a single resource', async() => {
 
   expect(blogs).not.toContain(toBeDeleted)
 
+});
+
+
+test('updating db data', async() => {
+
+  const response = await api.get('/api/blogs');
+  const dataToUpdateID = response.body[0].id;
+
+  const newData = {
+    title: "kilonsele",
+    author: "wizzy",
+    url: "Jayz.ng",
+    likes: 7
+  };
+
+  await api
+    .put(`/api/blogs/${dataToUpdateID}`)
+    .send(newData)
+    .expect(200)
+
+  const newResponse = await api.get('/api/blogs');
+
+  expect(newResponse.body[0].likes).toBe(7)
+  
 })
 
 afterAll(() => {
