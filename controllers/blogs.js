@@ -19,10 +19,18 @@ blogsRouter.post('/', async (request, response) => {
     }
   }
 
+  const handleTitleAndUrl = async () => {
+    if(!blog.title && !blog.url) {
+      return response.status(400).json()
+    } else {
+      const result = await blog.save()
+      return response.status(201).json(result)
+    }
+  }
+
   handleLikes()
+  handleTitleAndUrl()
   
-  const result = await blog.save()
-  response.status(201).json(result)
 })
 
 

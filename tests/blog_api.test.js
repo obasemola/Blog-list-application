@@ -40,7 +40,7 @@ test('post requests are valid', async () => {
     .expect('Content-Type', /application\/json/);
 
   const response = await api.get('/api/blogs')
-  expect(response.body).toHaveLength(5)
+  expect(response.body).toHaveLength(8)
 });
 
 test('if likes property defaults to 0 when missing', async() => {
@@ -57,6 +57,19 @@ test('if likes property defaults to 0 when missing', async() => {
   const response = await api.get('/api/blogs')
   
   expect(response.body[5].likes).toBe(0)
+});
+
+test('to make request throw error if title and url are missing', async () => {
+  const newBlog = {
+    author: "Jayz",
+    likes: 10
+  };
+
+  await api
+    .post('/api/blogs')
+    .send(newBlog)
+    .expect(400)
+
 })
 
 afterAll(() => {
