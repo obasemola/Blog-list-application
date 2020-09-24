@@ -24,13 +24,18 @@ blogsRouter.post('/', async (request, response) => {
       return response.status(400).json()
     } else {
       const result = await blog.save()
-      return response.status(201).json(result)
+      response.status(201).json(result)
     }
   }
 
   handleLikes()
   handleTitleAndUrl()
   
+})
+
+blogsRouter.delete('/:id', async (request, response) => {
+  await Blog.findByIdAndRemove(request.params.id);
+  response.status(204).end()
 })
 
 

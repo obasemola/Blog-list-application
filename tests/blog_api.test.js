@@ -72,6 +72,26 @@ test('to make request throw error if title and url are missing', async () => {
 
 })
 
+test('deletion of a single resource', async() => {
+
+  const response = await api.get('/api/blogs')
+  const toBeDeleted = response.body[2];
+
+
+  await api
+    .delete(`/api/blogs/${toBeDeleted.id}`)
+    .expect(204)
+
+  const newResponse = await api.get('/api/blogs')
+  const blogs = newResponse.body.map(blog => blog);
+
+  expect(blogs).toHaveLength(response.body.length - 1);
+
+
+  expect(blogs).not.toContain(toBeDeleted)
+
+})
+
 afterAll(() => {
   mongoose.connection.close()
 })
