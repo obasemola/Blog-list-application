@@ -10,10 +10,19 @@ blogsRouter.get('/', async (request, response) => {
     .find({})
     .populate('user', { name: 1, username: 1 })
   response.json(blogs)
-})
+});
+
+
+
+
+
+
+
+
 
 blogsRouter.post('/', async (request, response) => {
   const token = request.body.token
+
   const decodedToken = jwt.verify(token, process.env.SECRET)
 
   if(!token || !decodedToken.id){
@@ -22,6 +31,7 @@ blogsRouter.post('/', async (request, response) => {
 
   const body = request.body;
   const user = await User.findById(decodedToken.id);
+  console.log(user)
 
   const blog = new Blog({
     title: body.title,
@@ -54,6 +64,15 @@ blogsRouter.post('/', async (request, response) => {
   handleTitleAndUrl()
   
 });
+
+
+
+
+
+
+
+
+
 
 blogsRouter.delete('/:id', async (request, response) => {
   const token = request.body.token;

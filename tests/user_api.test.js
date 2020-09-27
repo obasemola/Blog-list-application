@@ -47,7 +47,7 @@ describe('checking of validation works', async () => {
     expect(newResponse.body).toHaveLength(results.body.length)
   });
 
-  test('whether non-uniques usernames return bad request', async () => {
+  test('whether non-unique usernames return bad request', async () => {
     const results = await api.get('/api/users')
 
     const newUser = {
