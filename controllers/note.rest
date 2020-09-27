@@ -1,9 +1,9 @@
-post http://localhost:3003/api/blogs
+delete http://localhost:3003/api/blogs/5f7053a7d5ba4e5cf8e4e93
 Content-Type: application/json
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJhdHRsZXNjIiwiaWQiOiI1ZjZmYzQ0NDRhNmI4YjMwMDg4OWQ4NTQiLCJpYXQiOjE2MDExNjE5MDF9._LACLdukD9iO7yW7kCV26BCKT7JF0px-cqnP1P4Z7c4
 
 {
-    "username": "battlesc",
-    "name": "guya",
-    "password": "lupere"
+    "title": "battlesc",
+    "author": "guyaa",
+    "url": "lupere"
 }
