@@ -1,9 +1,9 @@
-post http://localhost:3003/api/users
+post http://localhost:3003/api/blogs
 Content-Type: application/json
 
 
 {
-    "name": "battlesc",
-    "username": "gu",
-    "password": "lupe"
+    "username": "battlesc",
+    "name": "guya",
+    "password": "lupere"
 }

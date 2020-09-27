@@ -26,7 +26,6 @@ usersRouter.post('/', async (request, response) => {
   const user = new User({
     username: body.name,
     name: body.username,
-    blogs: 
     passwordHash
   });
 
